@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning in youtube</title>
+</head>
+
+<body style="background-color: #212121; color: #fff">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    <script>
+        function addLanguage(langName) {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `${langName}`;
+            document.querySelector('.language').appendChild(listItem);
+        }
+        addLanguage("Python");
+        addLanguage("Typescript");
+
+        function addLanguageOptimized(langName) {
+            const listItem = document.createElement("li");
+            listItem.appendChild(document.createTextNode(langName));
+            document.querySelector(".language").appendChild(listItem);
+        }
+        addLanguageOptimized("Golang");
+
+        // edit
+        const secondLanguage = document.querySelector("li:nth-child(2)")
+        console.log(secondLanguage); // <li>Python</li>
+        // secondLanguage.innerHTML =  "Rust"; // not an optimized approach
+        
+        // optimized approach
+        const newLangItem = document.createElement("li");
+        newLangItem.textContent = "Rust";
+        secondLanguage.replaceWith(newLangItem);
+
+        // edit
+        const firstLanguage = document.querySelector("li:first-child");
+        console.log(firstLanguage); // <li>Javascript</li>
+        firstLanguage.outerHTML = "<li> Pascal</li>";
+
+        // remove
+        const lastLanguage = document.querySelector("li:last-child");
+        lastLanguage.remove();
+
+    </script>
+</body>
+
+</html>

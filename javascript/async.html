@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async with youtube</title>
+</head>
+
+<body>
+    <h1>Async tutorials</h1>
+    <!-- <button id="start">Start</button>
+    <button id="stop">Stop</button> -->
+
+    <div class="project">
+        <div id="insert">
+            <div class="key">Press the key and watch magic</div>
+        </div>
+    </div>
+</body>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid #e7e7e7;
+    }
+    .project {
+        background-color: #1c1c1c;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align:center;
+        height: 100vh;
+    }
+    .color {
+        color: aliceblue;
+        display: flex;
+        flex-direction: row;
+    }
+</style>
+<script>
+    // const displayMsg = () => {
+    //     console.log("timeout function is called");
+    //     document.querySelector("h1").innerHTML = "changed the h1 value";
+    // }
+
+    // const displayMsgTimeout = setTimeout(displayMsg, 2000);
+    // document.querySelector("#stop").addEventListener("click", () => {
+    //     clearTimeout(displayMsgTimeout);
+    //     console.log("Stopped timeout");
+    // });
+
+    // exercise 1:
+    // const sayHello = (str) => {
+    //     console.log("Hello", str, Date.now());
+    // }
+    // let intervalId;
+    // document.querySelector("#start").addEventListener("click", () => {
+    //     intervalId = setInterval(sayHello, 1000, "Raghav");
+    // });
+    // document.querySelector("#stop").addEventListener("click", () => clearInterval(intervalId));
+
+    // exercise 2
+    // const randomColor = () => {
+    //     const hex = "0123456789ABCDEF";
+    //     let color = "#";
+    //     for (let i = 0; i < 6; i++) {
+    //         color += hex[Math.floor(Math.random() * 16)]
+    //     }
+    //     return color;
+    // }
+    
+    // let intervalId = null;
+    // const startChangeColor = () => {
+    //     if (!intervalId) {
+    //         intervalId = setInterval(changeBackgroundColor, 1000);
+    //     }
+    
+    //     function changeBackgroundColor() {
+    //         document.body.style.backgroundColor = randomColor();
+    //     }
+    // }
+    
+    // const stopChangeColor = () => {
+    //     clearInterval(intervalId);
+    //     intervalId = null;
+    // }
+    // document.querySelector("#start").addEventListener("click", startChangeColor);
+    // document.querySelector("#stop").addEventListener("click", stopChangeColor);
+
+    // exercise 3
+    const insert = document.getElementById("insert");
+    window.addEventListener("keydown", (keyEvent) => {
+        insert.innerHTML = `
+            <div class="color">
+                <table>
+                    <tr>
+                        <th>Key</th>
+                        <th>Keycode</th>
+                        <th>Code</th>
+                    </tr>
+                    <tr>
+                        <td>${keyEvent.key === " " ? "Space" : keyEvent.key}</td>
+                        <td>${keyEvent.keyCode}</td>
+                        <td>${keyEvent.code}</td>
+                    </tr>
+                </table>
+            </div>
+        `
+    });
+
+</script>
+
+</html>

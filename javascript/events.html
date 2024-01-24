@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning in youtube</title>
+</head>
+
+<body style="background-color: #212121; color: #fff">
+    <ul id="languages">
+        <li>
+            <img width="200px" id="js" src="https://static.javatpoint.com/images/javascript/javascript_logo.png">
+        </li>
+        <li>
+            <img width="200px" id="py"
+                src="https://www.ntuclearninghub.com/documents/51786/4216795/Python-Symbol.png/369e410e-a90f-f887-c2dc-61f7ef761476?t=1679043970578">
+        </li>
+        <li>
+            <a style="color: aliceblue;" href="https://www.google.co.in/" id="google">Google</a>
+        </li>
+    </ul>
+</body>
+<script>
+    // document.getElementById("js").onclick = () => alert("Javascript");
+    // document.getElementById("languages").addEventListener("click", (event) => {
+    //         console.log("clicked inside the ul");
+    //     }, false);
+    //     document.getElementById("js").addEventListener("click", (event) => {
+    //         console.log("clicked js");
+    //     }, false);
+    //     document.getElementById("google").addEventListener("click", (event) => {
+    //         event.preventDefault();
+    //         event.stopPropagation();
+    //     }, false);
+
+    document.querySelector("#languages").addEventListener("click", (event) => {
+        console.log(event.target.tagName);
+        if (event.target.tagName === "IMG") {
+            console.log("Removing item with id=", event.target.id);
+            let removeLi = event.target.parentNode;
+            removeLi.remove();
+            // removeLi.parentNode.removeChild(removeLi);
+        }
+    }, false);
+</script>
+
+</html>

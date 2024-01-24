@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX request demo</title>
+</head>
+
+<body>
+</body>
+<script>
+    const requestUrl = "https://api.github.com/users/raghav-nayak";
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl);
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const apiData = this.responseText; // "this" cannot be used with arrow function
+            console.log(typeof apiData); // string
+            apiDataJson = JSON.parse(apiData);
+            console.log(typeof apiDataJson); // object
+            console.log(apiDataJson.followers); // 4
+        }
+    }
+    xhr.send();
+</script>
+
+</html>

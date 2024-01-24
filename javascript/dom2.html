@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning in youtube</title>
+</head>
+
+<body style="background-color: #212121; color: #fff">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector(".parent");
+    console.log(parent);
+    console.log(parent.children); // return an HTMLCollection
+    console.log(parent.children.length); // 5
+    console.log(parent.children[1].innerHTML); // Tuesday
+    for (var i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+    }
+    parent.children[1].style.color = "orange";
+    console.log(parent.firstElementChild); // <div class="day">Monday</div>
+    console.log(parent.lastElementChild); // <div class="day">Friday</div>
+
+    const dayOne = document.querySelector(".day");
+    console.log(dayOne); // <div class="day">Monday</div>
+    console.log(dayOne.parentElement); // <div class="parent">...</div>
+    console.log(dayOne.nextElementSibling); // <div class="day" style="color: orange;">Tuesday</div>
+
+    console.log("Nodes:", parent.childNodes); // 11
+
+</script>
+
+</html>
